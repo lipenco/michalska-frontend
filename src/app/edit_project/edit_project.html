@@ -1,0 +1,26 @@
+</br>
+</br>
+</br>
+</br>
+<hr>
+
+  <div class="row">
+  </br>
+  </br>
+
+    <div class="large-12 columns text-center">
+      <button class="button success" ui-sref="addNewProject">add new project</button>
+    </div>
+    <div class="large-4 columns end text-center" ng-if="project"  class="slide-right" ng-repeat="project in projects | orderBy: 'project_date':true">
+      <div class="panel">
+        <p>{{project.title}}</p>
+        <img class="thumbnail" ng-src="{{project.thumbnail}}" alt="{{project.title}}">
+      <ul class="button-group radius">
+        <li><button class="button small alert" ng-click="delete(project)">X</button></li>
+        <li><button class="button small" ng-click="edit(project)">Edit</button></li>
+        <li><button class="button small success" ng-if="!project.published" ng-click="publish(project, true)">Publish</button></li>
+        <li><button class="button small alert" ng-if="project.published" ng-click="publish(project, false)">Unpublish</button></li>
+      </ul>
+      </div>
+    </div>
+  </div>

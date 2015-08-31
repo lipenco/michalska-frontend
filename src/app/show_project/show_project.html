@@ -1,0 +1,19 @@
+<div class="small-10 columns">
+<h2 class="project-title-show"> {{title}} </h2>
+<p ng-bind-html="description"></p>
+</br>
+</div>
+<div class="small-2 columns">
+</div>
+
+<hr>
+<div class="small-11 columns" ng-animate-children>
+  <div class="show-photo text-center repeated-item" ng-repeat="photo in photos">
+    <!-- <img class="horizontal-{{photo.horizontal}}"src={{photo.url}}></div> -->
+    <img class="horizontal-{{photo.horizontal}}" src="./assets/images/placeholder.gif" data-layzr="{{photo.url}}"  >
+
+  </div>
+
+</div>
+<div class="small-1 columns">
+</div>

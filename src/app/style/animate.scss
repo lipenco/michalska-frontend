@@ -1,0 +1,125 @@
+
+
+
+.repeated-item.ng-enter, .repeated-item.ng-move {
+  img {
+    -webkit-transition:1.5s linear all;
+    -moz-transition:1.5s linear all;
+    -o-transition:1.5s linear all;
+    transition:1.5s linear all;
+    opacity:0;
+  }
+
+}
+
+.repeated-item.ng-enter.ng-enter-active,
+.repeated-item.ng-move.ng-move-active {
+  img {
+    opacity:1;
+  }
+
+}
+
+/*
+  We're using CSS keyframe animations for when
+  the leave event is triggered for the element
+  that has the .repeated-item class
+*/
+.repeated-item.ng-leave {
+  img {
+    -webkit-animation:1.5s my_animation;
+    -moz-animation:1.5s my_animation;
+    -o-animation:1.5s my_animation;
+    animation:1.5s my_animation;
+  }
+
+}
+
+@keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+/*
+  Unfortunately each browser vendor requires
+  its own definition of keyframe animation code...
+*/
+@-webkit-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-moz-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-o-keyframes my_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+
+.slide {
+    -webkit-transition: -webkit-transform .7s ease-in-out;
+    -moz-transition: -moz-transform .7s ease-in-out;
+    -o-transition: -o-transform .7s ease-in-out;
+    transition: transform .7s ease-in-out;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide.ng-enter {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.slide.ng-enter.ng-enter-active, .slide.ng-leave {
+    position: absolute;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.slide.ng-leave.ng-leave-active {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.slide.ng-enter-stagger {
+  /* 200ms will be applied between each sucessive enter operation */
+  -webkit-transition-delay:0.2s;
+  transition-delay:0.2s;
+
+  /* this is here to avoid accidental CSS inheritance */
+  -webkit-transition-duration:0;
+  transition-duration:0;
+}
+
+.slide.ng-enter {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+
+  opacity:0;
+  line-height:0;
+}
+
+.slide.ng-enter.ng-enter-active {
+  opacity:1;
+  line-height:20px;
+}
+
+.repeat-animation {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s ease-in-out all;
+  position:relative;
+  left:0;
+}
+.repeat-animation.ng-enter-stagger {
+  -webkit-transition-delay:0.1s;
+  transition-delay:0.1s;
+  -webkit-transition-duration:0;
+  transition-duration:0;
+}
+.repeat-animation.ng-enter { opacity:0; }
+.repeat-animation.ng-enter { left:200px; }
+.repeat-animation.ng-enter-active { opacity:1; left:0; }

@@ -1,0 +1,15 @@
+
+<div class="row">
+<p>Photos</p>
+<div class="panel small-3 columns" ng-repeat="photo in photos">
+  <img class="" ng-src="{{photo.url}}">
+  <br />
+  <ul class="button-group radius">
+    <li><button class="button small alert" ng-click="deletePhoto(photo)">Delete</button></li>
+
+    <li ng-if="photo.featured"><button class="button small" ng-click="setFeatured(photo, false)">Unfeature</button></li>
+    <li ng-if="!photo.featured"><button class="button small" ng-click="setFeatured(photo, true)">Feature</button></li>
+  </ul>
+</div>
+
+</div>
